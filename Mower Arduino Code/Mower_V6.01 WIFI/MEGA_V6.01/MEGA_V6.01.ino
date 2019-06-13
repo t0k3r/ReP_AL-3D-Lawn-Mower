@@ -253,16 +253,16 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   //Compass Module
   bool Compass_Activate               = 1;                      // Turns on the Compass (needs to be 1 to activate further compass features)
   bool Compass_Heading_Hold_Enabled   = 1;                      // Activates the compass heading hold function to keep the mower straight
-  int  Home_Wire_Compass_Heading      = 120;                    // Heading the Mower will search for the wire once the mowing is completed.
-  int  CPower                         = 120;                    // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
+  int  Home_Wire_Compass_Heading      = 95;                    // Heading the Mower will search for the wire once the mowing is completed.
+  int  CPower                         = 150;                    // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
 
   //Rain sensor 
   bool Rain_Sensor_Installed          = 1;                      // 1 for Rain sensor installed    0 for no sensor installed.
   byte Rain_Total_Hits_Go_Home        = 10;                      // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings
-  float Battery_Max               = 12.6;                       // Max battery volts in Volts. 3S = 12.6V
-  float Battery_Min               = 10.2;                       // Lower Limit of battery charge before re-charge required.
+  float Battery_Max               = 18.8;                       // Max battery volts in Volts. 3S = 12.6V
+  float Battery_Min               = 16.0;                       // Lower Limit of battery charge before re-charge required.
   byte  Low_Battery_Detected      = 0;                          // Always set to 0
   byte  Low_Battery_Instances_Chg = 14;                         // Instances of low battery detected before a re-charge is called..
 
@@ -270,13 +270,13 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Sonar_1_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 1
   bool Sonar_2_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 2
   bool Sonar_3_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 3
-  int  Max_Sonar_Hit              = 3;                          // Maximum number of Sonar hits before object is discovered
+  int  Max_Sonar_Hit              = 2;                          // Maximum number of Sonar hits before object is discovered
   long maxdistancesonar           = 30;                         // distance in cm from the mower that the sonar will activate at.
 
   //Wheel Motor Setup
   byte Max_Cycles                 = 150;
-  byte PWM_MaxSpeed_LH            = 200;                        // Straight line speed LH Wheel (Looking from back of mower)
-  byte PWM_MaxSpeed_RH            = 255;                        // Straight line speed RH Wheel - adjust to keep mower tracking straight.
+  byte PWM_MaxSpeed_LH            = 255;                        // Straight line speed LH Wheel (Looking from back of mower)
+  byte PWM_MaxSpeed_RH            = 245;                        // Straight line speed RH Wheel - adjust to keep mower tracking straight.
 
   int Mower_Turn_Delay_Min        = 1500;                       // Min Max Turn time of the Mower after it reverses at the wire.
   int Mower_Turn_Delay_Max        = 2500;                       // A random turn time between these numbers is selected by the software
@@ -323,8 +323,8 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
     int InMid = -700;
     int InMax = -1500;                                            // the maximum received signal value  the wire
     /*General Setup PID numbers for wire tracking*/
-    float P               = 0.08;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
-    float D               = 10;                                   // Dampening value to avoid the mower snaking on the wire.  
+    float P               = 0.81;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
+    float D               = 1;                                   // Dampening value to avoid the mower snaking on the wire.  
     byte Scale            = 36;                                   // Serial Monitor Line Tracking Print Scale
   
     /*Positive Values for Out*/

@@ -143,7 +143,7 @@ int PrintMAG_Now;
   byte Max_Number_Blockage_Registered = 40;                    // Max number of blockages registered by sonar before turn is made.
   
 
-  /* Description of how the below values are displayed in the Serial Monitor Print Out for the wire
+/* Description of how the below values are displayed in the Serial Monitor Print Out for the wire
      function
      (InMax)                   Wire = 0                 (OutMax)
          |      (InMid)           |           (OutMid)     |
@@ -153,25 +153,20 @@ int PrintMAG_Now;
   */
 
   // Wire detection Values
-    /*Negative Values for In*/                            // These values are based on the signal received by the wire sensor for my perimeter loop
+    /*Negative Values for In*/                                    // These values are based on the signal received by the wire sensor for my perimeter loop
     int InMin = -200;
     int InMid = -700;
-    int InMax = -1500;                                        // the maximum received signal value inside the wire
+    int InMax = -9000;                                            // the maximum received signal value  the wire
     /*General Setup PID numbers for wire tracking*/
-    float P               = 0.17;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
-    float D               = 10;                                   // Dampening value to avoid the mower snaking on the wire.  
+    float P               = 0.25;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
+    float D               = 0.05;                                   // Dampening value to avoid the mower snaking on the wire.  
     byte Scale            = 36;                                   // Serial Monitor Line Tracking Print Scale
-    byte PWM_MaxSpeed_LH  = 240;                               // Wheel Motor Speed Max LH Wheel (Looking from back of mower)
-    byte PWM_MaxSpeed_RH  = 255;                               // Wheel Motor Speed Max RH Wheel
-   
+  
     /*Positive Values for Out*/
     int OutMin = 150;
     int OutMid = 400;
-    int OutMax = 1500;                                        // the maximum received signal value outside the wire
-  
-  
-  
-  /************************************************************************************************************/
+    int OutMax = 1500;                                            // the maximum received signal value outside the wire
+
 
 void setup() {
     //Setup is placed in a function so the setup can be ran once the Mower is docked 

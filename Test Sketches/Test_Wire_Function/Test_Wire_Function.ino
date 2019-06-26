@@ -152,14 +152,15 @@ int PrintMAG_Now;
                         (InMin)       (OutMin)
   */
 
+  
   // Wire detection Values
     /*Negative Values for In*/                                    // These values are based on the signal received by the wire sensor for my perimeter loop
     int InMin = -200;
     int InMid = -700;
-    int InMax = -9000;                                            // the maximum received signal value  the wire
+    int InMax = -1500;                                            // the maximum received signal value  the wire
     /*General Setup PID numbers for wire tracking*/
-    float P               = 0.25;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
-    float D               = 0.05;                                   // Dampening value to avoid the mower snaking on the wire.  
+    float P               = 0.2;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
+    float D               = 100;                                   // Dampening value to avoid the mower snaking on the wire.  
     byte Scale            = 36;                                   // Serial Monitor Line Tracking Print Scale
   
     /*Positive Values for Out*/

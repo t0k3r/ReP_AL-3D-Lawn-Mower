@@ -257,16 +257,16 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   //Compass Module
   bool Compass_Activate               = 1;                      // Turns on the Compass (needs to be 1 to activate further compass features)
   bool Compass_Heading_Hold_Enabled   = 1;                      // Activates the compass heading hold function to keep the mower straight
-  int  Home_Wire_Compass_Heading      = 110;                    // Heading the Mower will search for the wire once the mowing is completed.
-  int  CPower                         = 2;                    // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
+  int  Home_Wire_Compass_Heading      = 220;                    // Heading the Mower will search for the wire once the mowing is completed.
+  int  CPower                         = 260;                    // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
 
   //Rain sensor 
   bool Rain_Sensor_Installed          = 1;                      // 1 for Rain sensor installed    0 for no sensor installed.
   byte Rain_Total_Hits_Go_Home        = 10;                      // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings
-  float Battery_Max               = 12.6;                       // Max battery volts in Volts. 3S = 12.6V
-  float Battery_Min               = 10.2;                       // Lower Limit of battery charge before re-charge required.
+  float Battery_Max               = 18.8;                       // Max battery volts in Volts. 3S = 12.6V
+  float Battery_Min               = 16.0;                       // Lower Limit of battery charge before re-charge required.
   byte  Low_Battery_Detected      = 0;                          // Always set to 0
   byte  Low_Battery_Instances_Chg = 14;                         // Instances of low battery detected before a re-charge is called..
 
@@ -275,12 +275,12 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Sonar_2_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 2
   bool Sonar_3_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 3
   int  Max_Sonar_Hit              = 3;                          // Maximum number of Sonar hits before object is discovered
-  long maxdistancesonar           = 30;                         // distance in cm from the mower that the sonar will activate at.
+  long maxdistancesonar           = 40;                         // distance in cm from the mower that the sonar will activate at.
 
   //Wheel Motor Setup
   byte Max_Cycles                 = 150;
-  byte PWM_MaxSpeed_LH            = 210;                        // Straight line speed LH Wheel (Looking from back of mower)
-  byte PWM_MaxSpeed_RH            = 255;                        // Straight line speed RH Wheel - adjust to keep mower tracking straight.
+  byte PWM_MaxSpeed_LH            = 255;                        // Straight line speed LH Wheel (Looking from back of mower)
+  byte PWM_MaxSpeed_RH            = 250;                        // Straight line speed RH Wheel - adjust to keep mower tracking straight.
   int Mower_Turn_Delay_Min        = 1500;                       // Min Max Turn time of the Mower after it reverses at the wire.
   int Mower_Turn_Delay_Max        = 2500;                       // A random turn time between these numbers is selected by the software
   int Mower_Reverse_Delay         = 2500;                       // Time the mower revreses at the wire
@@ -320,20 +320,20 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
 
   // Wire detection Values
     /*Negative Values for In*/                                    // These values are based on the signal received by the wire sensor for my perimeter loop
-    int InMin = -200;
-    int InMid = -700;
-    int InMax = -1500;                                            // the maximum received signal value  the wire
+    int InMin = -150;
+    int InMid = -470;
+    int InMax = -1000;                                            // the maximum received signal value  the wire
     /*General Setup PID numbers for wire tracking*/
-    float P               = 0.08;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
-    float D               = 10;                                   // Dampening value to avoid the mower snaking on the wire.  
+    float P               = 0.85;                                 // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
+    float D               = 1000;                                   // Dampening value to avoid the mower snaking on the wire.  
     byte Scale            = 36;                                   // Serial Monitor Line Tracking Print Scale
   
     /*Positive Values for Out*/
     int OutMin = 150;
     int OutMid = 400;
-    int OutMax = 1500;                                            // the maximum received signal value outside the wire
+    int OutMax = 5500;                                            // the maximum received signal value outside the wire
 
-    int Outside_Wire_Count_Max          = 10;                      // If the mower is outside the wire this many times the mower is stopped
+    int Outside_Wire_Count_Max          = 5;                      // If the mower is outside the wire this many times the mower is stopped
     int Action_On_Over_Wire_Count_Max   = 2;                      // Set 1 to hibernate mower (Power Off and Stop)   Set 2 to refind garden using sonar and wire detect function
 
     bool Show_TX_Data                   = 0;                      // Show the values recieved from the Nano / ModeMCU in the serial monitor

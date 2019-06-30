@@ -272,7 +272,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Compass_Activate               = 1;                      // Turns on the Compass (needs to be 1 to activate further compass features)
   bool Compass_Heading_Hold_Enabled   = 1;                      // Activates the compass heading hold function to keep the mower straight
   int  Home_Wire_Compass_Heading      = 110;                    // Heading the Mower will search for the wire once the mowing is completed.
-  int  CPower                         = 2;                      // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
+  int  CPower                         = 220;                      // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
   bool Pattern_Mow                    = 0;  //*** Not Working yet  // Activate pattern mowing instead of random mowing direction
   int  Compass_Mow_Direction          = 110;                    // Mow Direction of line when pattern mow is activated
 
@@ -281,8 +281,8 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   byte Rain_Total_Hits_Go_Home        = 10;                      // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings
-  float Battery_Max               = 12.6;                       // Max battery volts in Volts. 3S = 12.6V
-  float Battery_Min               = 10.2;                       // Lower Limit of battery charge before re-charge required.
+  float Battery_Max               = 18.4;                       // Max battery volts in Volts. 3S = 12.6V
+  float Battery_Min               = 16.0;                       // Lower Limit of battery charge before re-charge required.
   byte  Low_Battery_Detected      = 0;                          // Always set to 0
   byte  Low_Battery_Instances_Chg = 14;                         // Instances of low battery detected before a re-charge is called..
 
@@ -291,15 +291,15 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Sonar_2_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 2
   bool Sonar_3_Activate           = 1;                          // Activate (1) Deactivate (0) Sonar 3
   int  Max_Sonar_Hit              = 3;                          // Maximum number of Sonar hits before object is discovered
-  long maxdistancesonar           = 30;                         // distance in cm from the mower that the sonar will activate at.
+  long maxdistancesonar           = 50;                         // distance in cm from the mower that the sonar will activate at.
 
   //Wheel Motors Setup
   byte Max_Cycles                 = 150;
-  byte PWM_MaxSpeed_LH            = 220;                        // Straight line speed LH Wheel (Looking from back of mower) 210
+  byte PWM_MaxSpeed_LH            = 255;                        // Straight line speed LH Wheel (Looking from back of mower) 210
   byte PWM_MaxSpeed_RH            = 255;                        // Straight line speed RH Wheel - adjust to keep mower tracking straight.
   int Mower_Turn_Delay_Min        = 1000;                       // Min Max Turn time of the Mower after it reverses at the wire.
   int Mower_Turn_Delay_Max        = 2500;                       // A random turn time between these numbers is selected by the software
-  int Mower_Reverse_Delay         = 1800;                       // Time the mower revreses at the wire
+  int Mower_Reverse_Delay         = 250;                       // Time the mower revreses at the wire
 
       
 

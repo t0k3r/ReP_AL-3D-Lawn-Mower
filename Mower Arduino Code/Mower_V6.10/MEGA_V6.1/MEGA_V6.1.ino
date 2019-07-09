@@ -304,7 +304,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
       
 
   //Blade Motor Setup
-  byte PWM_Blade_Speed            = 250;                        // PWM signal sent to the blade motor (speed of blade) new motor works well at 245.
+  byte PWM_Blade_Speed            = 255;                        // PWM signal sent to the blade motor (speed of blade) new motor works well at 245.
 
   // Alarm Setup
   bool Set_Time                   = 0;                          // Turn to 1 to set time on RTC (Set time in Time tab Set_Time_On_RTC)  After setting time turn to 0 and reload sketch.

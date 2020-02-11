@@ -292,7 +292,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
 
   char Version[16] = "V6.7";
 
-  bool Cutting_Blades_Activate    = 1;                          // Activates the cutting blades and disc in the code
+  bool Cutting_Blades_Activate    = 0;                          // Activates the cutting blades and disc in the code
   bool WIFI_Enabled               = 1;                          // Activates the WIFI Fucntions
   bool Perimeter_Wire_Enabled     = 1;                          // Activates use of the perimeter boundary wire
 
@@ -314,7 +314,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   int  Max_Cycle_Wire_Find_Back   = 50;                         // Maximum number of Backward tracking cycles in finding wire before the mower restarts a compass turn and wire find.  
 
   //Compass Settings
-  bool Compass_Activate               = 0;                      // Turns on the Compass (needs to be 1 to activate further compass features)
+  bool Compass_Activate               = 1;                      // Turns on the Compass (needs to be 1 to activate further compass features)
   bool Compass_Heading_Hold_Enabled   = 1;                      // Activates the compass heading hold function to keep the mower straight
   int  Home_Wire_Compass_Heading      = 110;                    // Heading the Mower will search for the wire once the mowing is completed.
   int  CPower                         = 2;                      // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing

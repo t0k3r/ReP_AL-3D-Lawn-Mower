@@ -22,8 +22,8 @@
 
 //Libraries for ic2 Liquid Crystal
 #include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // 330 Mower
-//LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // LAM Test
+//LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // 330 Mower
+LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // LAM Test
 
 
 //Libraries for the Mowing Calendar Function
@@ -351,7 +351,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Perimeter_Wire_Enabled     = 1;     // EEPROM            // Activates use of the perimeter boundary wire
 
   //Docking Station
-  bool Use_Charging_Station       = 1;      //EEPROM            // 1 if you are using the docking/charging station     0 if not
+  bool Use_Charging_Station       = 0;      //EEPROM            // 1 if you are using the docking/charging station     0 if not
   bool CW_Tracking_To_Charge      = 1;      //EEPROM            // Clock-Wise         tracking around the boundary wire to the charging station
   bool CCW_Tracking_To_Charge     = 0;      //EEPROM            // Counter-Clock-Wise tracking around the boundary wire to the charging station
   bool CW_Tracking_To_Start       = 0;      //EEPROM            // Clock-Wise         tracking around the boundary wire when tracking to the start position
@@ -385,16 +385,16 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   int  Max_Tilt_Hits                  = 5;
 
   //Compass alternative settings if the QMC Compass is freezing
-  int  Compass_QMC_Refresh_Setting    = 3;                      // 1 = 200HZ and 2 = 100Hz and 3 = 50HZ (Standard) 4 = 10Hz if compass is freezing try a different refresh rate. 
+  int  Compass_QMC_Refresh_Setting    = 2;                      // 1 = 200HZ and 2 = 100Hz and 3 = 50HZ (Standard) 4 = 10Hz if compass is freezing try a different refresh rate. 
   int  Compass_QMC_Sample_Setting     = 3;                      // Number of samples per call to the Compass | 1 = 2 | 2 = 4 | 3 = 8 (Standard) |.
 
   //Rain sensor 
-  bool Rain_Sensor_Installed          = 1;  //EEPROM            // 1  = Rain sensor installed    0 = no sensor installed.
+  bool Rain_Sensor_Installed          = 0;  //EEPROM            // 1  = Rain sensor installed    0 = no sensor installed.
   int  Rain_Total_Hits_Go_Home        = 10; //EEPROM            // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings
-  float Battery_Max               = 12.6;                       // Max battery volts in Volts. 3S = 12.6V
-  float Battery_Min               = 11.4;   //EEPROM            // Lower Limit of battery charge before re-charge required.
+  float Battery_Max               = 21.0;                       // Max battery volts in Volts. 3S = 12.6V
+  float Battery_Min               = 14.8;   //EEPROM            // Lower Limit of battery charge before re-charge required.
   byte  Low_Battery_Detected      = 0;                          // Always set to 0
   byte  Low_Battery_Instances_Chg = 14;     //EEPROM            // Instances of low battery detected before a re-charge is called..
 

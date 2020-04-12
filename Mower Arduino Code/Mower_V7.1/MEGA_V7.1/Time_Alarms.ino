@@ -155,7 +155,7 @@ void Set_Time_On_RTC(){
    // Set_Time to 1 in the setting menu to set time.  Load the sketch then immediatley Set_Time = 0 and reload the sketch.
         rtc.writeProtect(false);
         rtc.halt(false);
-        Time t(2019, 9, 14, 17, 03, 00, Time::kSaturday);            // Year XXXX, Month XX, Day XX, Hour XX, Minute XX, Second, kXYZday
+        Time t(2020, 4, 12, 16, 03, 00, Time::kSunday);            // Year XXXX, Month XX, Day XX, Hour XX, Minute XX, Second, kXYZday
         rtc.time(t);    
         delay(10);
    }

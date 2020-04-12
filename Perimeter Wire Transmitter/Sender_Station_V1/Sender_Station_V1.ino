@@ -73,18 +73,18 @@ byte printTag = 1;                    // Ausgabesteuerung c = calib, 0 = normal,
 #define USE_PERI_FAULT        0     // use pinFault for driver fault detection? (set to '0' if not connected!)
 
 // motor driver feedback pin (=perimeter open/close detection, used for status LED)
-#define USE_PERI_CURRENT      1     // use pinFeedback for perimeter current measurements? (set to '0' if not connected!)
+#define USE_PERI_CURRENT      0     // use pinFeedback for perimeter current measurements? (set to '0' if not connected!)
 #define pinFeedback A0  // M1_FB
 #define PERI_CURRENT_MIN    0.03     // minimum Ampere for perimeter-is-closed detection 
 
 // ---- sender current control (via potentiometer) ----
 // sender modulates signal (PWM), based on duty-cycle set via this potentiometer
-#define USE_POT      1  // use potentiometer for current control? (set to '0' if not connected!)
+#define USE_POT      0  // use potentiometer for current control? (set to '0' if not connected!)
 #define pinPot      A3  // 100k potentiometer (current control)   
 
 // ---- sender automatic standby (via current sensor for charger) ----
 // sender detects robot via a charging current through the charging pins
-#define USE_CHG_CURRENT       1     // use charging current sensor for robot detection? (set to '0' if not connected!)
+#define USE_CHG_CURRENT       0     // use charging current sensor for robot detection? (set to '0' if not connected!)
 #define pinChargeCurrent     A2     // ACS712-05 current sensor OUT
 #define CHG_CURRENT_MIN   0.008      // minimum Ampere for charging detection
 
@@ -472,10 +472,3 @@ void loop()
 
 
 }
-
-
-
-
-
-
-

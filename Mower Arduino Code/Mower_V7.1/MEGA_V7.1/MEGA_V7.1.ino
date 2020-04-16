@@ -369,7 +369,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
 
   //Compass Settings
   bool Compass_Activate               = 0;       //EEPROM       // Turns on the Compass (needs to be 1 to activate further compass features)
-  bool Compass_Heading_Hold_Enabled   = 1;       //EEPROM       // Activates the compass heading hold function to keep the mower straight
+  bool Compass_Heading_Hold_Enabled   = 0;       //EEPROM       // Activates the compass heading hold function to keep the mower straight
   int  Home_Wire_Compass_Heading      = 110;     //EEPROM       // Heading the Mower will search for the wire once the mowing is completed.
   float CPower                        = 2;       //EEPROM       // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
 
@@ -393,8 +393,8 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   int  Rain_Total_Hits_Go_Home        = 10; //EEPROM            // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings
-  float Battery_Max               = 21.0;                       // Max battery volts in Volts. 3S = 12.6V
-  float Battery_Min               = 14.8;   //EEPROM            // Lower Limit of battery charge before re-charge required.
+  float Battery_Max               = 16.8;                       // Max battery volts in Volts. 3S = 12.6V
+  float Battery_Min               = 13.6;   //EEPROM            // Lower Limit of battery charge before re-charge required.
   byte  Low_Battery_Detected      = 0;                          // Always set to 0
   byte  Low_Battery_Instances_Chg = 14;     //EEPROM            // Instances of low battery detected before a re-charge is called..
 

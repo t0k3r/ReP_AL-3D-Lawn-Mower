@@ -402,8 +402,8 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Sonar_1_Activate           = 1;      //EEPROM            // Activate (1) Deactivate (0) Sonar 1
   bool Sonar_2_Activate           = 1;      //EEPROM            // Activate (1) Deactivate (0) Sonar 2
   bool Sonar_3_Activate           = 1;      //EEPROM            // Activate (1) Deactivate (0) Sonar 3
-  int  Max_Sonar_Hit              = 3;      //EEPROM            // Maximum number of Sonar hits before object is discovered
-  long maxdistancesonar           = 30;     //EEPROM            // distance in cm from the mower that the sonar will activate at.
+  int  Max_Sonar_Hit              = 2;      //EEPROM            // Maximum number of Sonar hits before object is discovered
+  long maxdistancesonar           = 40;     //EEPROM            // distance in cm from the mower that the sonar will activate at.
 
   // Bumper Module
   bool Bumper_Activate_Frnt       = 0;      //EEPROM            // Activates the bumper bar on the front facia - defualt is off.  Enable in the LCD settings menu.
@@ -411,7 +411,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   //Wheel Motors Setup
   int Max_Cycles_Straight        = 150;     //EEPROM            // Number of loops the Sketch will run before the mower just turns around anyway. Adjust according to your garden length
   int PWM_MaxSpeed_LH            = 240;     //EEPROM            // Straight line speed LH Wheel (Looking from back of mower)  Will be overidden if saved in EEPROM
-  int PWM_MaxSpeed_RH            = 255;     //EEPROM            // Straight line speed RH Wheel - adjust to keep mower tracking straight.  Will be overridden if saved in EEPROM
+  int PWM_MaxSpeed_RH            = 220;     //EEPROM            // Straight line speed RH Wheel - adjust to keep mower tracking straight.  Will be overridden if saved in EEPROM
 
   int Max_Motor_PWM_LH           = 255;
   int Max_Motor_PWM_RH           = 255;
@@ -472,7 +472,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
     int InMid = -700;
     int InMax = -1500;                                            // the maximum received signal value  the wire
     /*General Setup PID numbers for wire tracking*/
-    float P               = 0.08;              //EEPROM           // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
+    float P               = 0.18;              //EEPROM           // Multiplication factor to the error measured to the wire center.  if jerky movement when tracking reduce number
     float D               = 10;                                   // Dampening value to avoid the mower snaking on the wire.  
     byte Scale            = 36;                                   // Serial Monitor Line Tracking Print Scale
   

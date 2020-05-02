@@ -351,7 +351,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   bool Perimeter_Wire_Enabled     = 1;     // EEPROM            // Activates use of the perimeter boundary wire
 
   //Docking Station
-  bool Use_Charging_Station       = 0;      //EEPROM            // 1 if you are using the docking/charging station     0 if not
+  bool Use_Charging_Station       = 1;      //EEPROM            // 1 if you are using the docking/charging station     0 if not
   bool CW_Tracking_To_Charge      = 1;      //EEPROM            // Clock-Wise         tracking around the boundary wire to the charging station
   bool CCW_Tracking_To_Charge     = 0;      //EEPROM            // Counter-Clock-Wise tracking around the boundary wire to the charging station
   bool CW_Tracking_To_Start       = 0;      //EEPROM            // Clock-Wise         tracking around the boundary wire when tracking to the start position
@@ -389,7 +389,7 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   int  Compass_QMC_Sample_Setting     = 3;                      // Number of samples per call to the Compass | 1 = 2 | 2 = 4 | 3 = 8 (Standard) |.
 
   //Rain sensor 
-  bool Rain_Sensor_Installed          = 0;  //EEPROM            // 1  = Rain sensor installed    0 = no sensor installed.
+  bool Rain_Sensor_Installed          = 1;  //EEPROM            // 1  = Rain sensor installed    0 = no sensor installed.
   int  Rain_Total_Hits_Go_Home        = 10; //EEPROM            // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings

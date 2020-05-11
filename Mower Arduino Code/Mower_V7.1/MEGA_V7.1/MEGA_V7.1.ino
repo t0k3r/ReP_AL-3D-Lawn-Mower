@@ -368,10 +368,10 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   int  Max_Cycle_Wire_Find_Back   = 50;     //EEPROM            // Maximum number of Backward tracking cycles in finding wire before the mower restarts a compass turn and wire find.  
 
   //Compass Settings
-  bool Compass_Activate               = 0;       //EEPROM       // Turns on the Compass (needs to be 1 to activate further compass features)
-  bool Compass_Heading_Hold_Enabled   = 0;       //EEPROM       // Activates the compass heading hold function to keep the mower straight
+  bool Compass_Activate               = 1;       //EEPROM       // Turns on the Compass (needs to be 1 to activate further compass features)
+  bool Compass_Heading_Hold_Enabled   = 1;       //EEPROM       // Activates the compass heading hold function to keep the mower straight
   int  Home_Wire_Compass_Heading      = 110;     //EEPROM       // Heading the Mower will search for the wire once the mowing is completed.
-  float CPower                        = 2;       //EEPROM       // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
+  float CPower                        = 8;       //EEPROM       // Magnification of heading to PWM - How strong the mower corrects itself in Compass Mowing
 
   // Pattern Mow
   int  Pattern_Mow                    = 0;       //EEPROM       // 0 = OFF |  1 = Parallel (not working!!) | 3 = Sprials |
@@ -385,11 +385,11 @@ DS1302 rtc(kCePin, kIoPin, kSclkPin);
   int  Max_Tilt_Hits                  = 5;
 
   //Compass alternative settings if the QMC Compass is freezing
-  int  Compass_QMC_Refresh_Setting    = 2;                      // 1 = 200HZ and 2 = 100Hz and 3 = 50HZ (Standard) 4 = 10Hz if compass is freezing try a different refresh rate. 
+  int  Compass_QMC_Refresh_Setting    = 3;                      // 1 = 200HZ and 2 = 100Hz and 3 = 50HZ (Standard) 4 = 10Hz if compass is freezing try a different refresh rate. 
   int  Compass_QMC_Sample_Setting     = 3;                      // Number of samples per call to the Compass | 1 = 2 | 2 = 4 | 3 = 8 (Standard) |.
 
   //Rain sensor 
-  bool Rain_Sensor_Installed          = 1;  //EEPROM            // 1  = Rain sensor installed    0 = no sensor installed.
+  bool Rain_Sensor_Installed          = 0;  //EEPROM            // 1  = Rain sensor installed    0 = no sensor installed.
   int  Rain_Total_Hits_Go_Home        = 10; //EEPROM            // This sensor only makes sense in combination with a mower docking station
                                                                 // as the mower is sent there to get out of the rain.
   //Battery Settings

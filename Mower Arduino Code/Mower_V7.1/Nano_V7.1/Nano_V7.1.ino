@@ -32,7 +32,7 @@ void Calculate_Volt_Amp() {
 
 
 // Calculate Amp Value from Charging Pins
- int mVperAmp = 185;
+ int mVperAmp = 66; // use 100 for 20A Module and 66 for 30A Module 185 default
  int ACSoffset = 2500; 
  double VoltageAmp = 0;
  double Amps = 0;
@@ -46,7 +46,7 @@ void Calculate_Volt_Amp() {
  float vout = 0.0;
  float R1 = 30000;      // 30000 Mower 2    Mower 1 30000
  float R2 = 7300;       // 7300 Mower 2     Mower 1 7500
- vout = (RawValueVolt * 3.7) / 1024.0; // see text
+ vout = (RawValueVolt * 5.1) / 1024.0; // see text
  VoltsTX = vout / (R2/(R1+R2)); 
 
 }
@@ -111,8 +111,8 @@ void loop(){
  Serial.print(VoltsTX);
  Serial.print("|");
 
- if (AmpsTX < 0.4) Charging = 0;
- if (AmpsTX > 0.4) Charging = 4;
+ if (AmpsTX < -34.99) Charging = 0;
+ if (AmpsTX > -34.92) Charging = 4;
  Serial.print("Charging = ");  
  Serial.print(Charging);
  Serial.print("|");

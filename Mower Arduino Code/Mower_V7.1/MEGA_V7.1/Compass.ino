@@ -15,7 +15,7 @@ void Get_Compass_Reading() {
 
   // Set declination angle. Find your location declination on: http://magnetic-declination.com/
   // (+) Positive or (-) for negative,
-  float Declination_Angle = (2.0 + (19.0 / 60.0)) / (180 / PI);   // Bad Krozingen is 2° 19'
+  float Declination_Angle = (0.0 + (24.0 / 60.0)) / (180 / PI);   // Bad Krozingen is 2° 19'
   Heading += Declination_Angle;
 
   if (Heading < 0) {                                              // Correct for heading < 0deg and heading > 360deg
